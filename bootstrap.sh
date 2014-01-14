@@ -36,6 +36,9 @@ EOF
 source /etc/profile.d/phantomjs-init.sh
 
 # install karma and bower
+# git is required by bower
+sudo apt-get -qy install git
 cd /opt/node-v0.10.15-linux-x86/bin
-sudo ./npm install bower -g
-sudo ./npm install karma -g
+sudo ./npm --registry http://registry.npmjs.eu/ install bower -g
+sudo ./npm --registry http://registry.npmjs.eu/ install karma -g
+sudo ./npm --registry http://registry.npmjs.eu/ install karma-coverage -g

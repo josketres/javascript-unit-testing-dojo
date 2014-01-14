@@ -17,3 +17,7 @@ npm-debug.log
 dojo-workspace/*
 !dojo-workspace/README.md
 !dojo-workspace/practice-template
+.bower.json
+
+dojo-workspace/practice-template/coverage/
+dojo-workspace/practice-template/bower_components/

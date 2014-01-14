@@ -15,7 +15,12 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'main/*.js',
-      'test/*Spec.js'
+      'test/*Spec.js',
+
+      // libs
+      'bower_components/jquery/jquery.js',
+      'bower_components/jasmine-ajax/lib/mock-ajax.js',
+      'bower_components/jasmine-jquery/lib/jasmine-jquery.js'
     ],
 
 
@@ -27,7 +32,7 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -64,6 +69,19 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: false,
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'main/*.js': ['coverage']
+    },
+
+    // optionally, configure the reporter
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    }
   });
 };
